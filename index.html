@@ -89,19 +89,6 @@
 </style>
 </head>
 <body>
-<!--
-  ПЛЕЙСХОЛДЕРЫ (замени перед публикацией):
-  * YOUR_USER  — твой логин на GitHub (в ссылках https://github.com/YOUR_USER/YOUR_REPO...);
-  * YOUR_REPO  — имя репозитория, например kotoclick;
-    они стоят в блоке «Скачать»: ссылка на KotoClick.exe
-    (https://github.com/YOUR_USER/YOUR_REPO/releases/latest/download/KotoClick.exe),
-    ссылки «Исходный код» и «Все версии»;
-  * [ПЛЕЙСХОЛДЕР — ссылка на репозиторий GitHub] — 3 ссылки (кнопка в шапке-герое,
-    шаг установки, подвал): туда тоже можно поставить https://github.com/YOUR_USER/YOUR_REPO;
-  * [ПЛЕЙСХОЛДЕР] в подвале — лицензия и контакты.
-  Ссылка на KotoClick.exe заработает, только когда в последнем релизе будет файл
-  с именем ровно KotoClick.exe (см. PUBLISHING.md).
--->
 
 <header class="nav">
   <div class="wrap">
@@ -135,7 +122,7 @@
         <div class="actions">
           <a class="btn" href="#download" data-i18n="heroDownload">Скачать для Windows</a>
           <a class="btn ghost" href="#install" data-i18n="heroInstall">Как установить</a>
-          <a class="btn ghost" href="[ПЛЕЙСХОЛДЕР — ссылка на репозиторий GitHub]" data-i18n="heroGithub">GitHub</a>
+          <a class="btn ghost" href="[https://github.com/NOMBER/KotoClick]" data-i18n="heroGithub">GitHub</a>
         </div>
       </div>
       <div class="cat-box">
@@ -191,10 +178,10 @@
         <h2 data-i18n="downloadTitle">Скачать КотоКлик</h2>
         <p class="sub" style="margin-bottom:18px" data-i18n-html="downloadSub">Готовая программа для Windows — один файл <code>KotoClick.exe</code>, Python не нужен. Файл лежит в разделе Releases на GitHub, рядом с исходным кодом.</p>
         <div class="actions">
-          <a class="btn big" href="https://github.com/YOUR_USER/YOUR_REPO/releases/latest/download/KotoClick.exe" data-i18n="downloadBtn">⬇ Скачать KotoClick.exe</a>
-          <a class="btn ghost" href="https://github.com/YOUR_USER/YOUR_REPO" data-i18n="sourceBtn">Исходный код / Source</a>
+          <a class="btn big" href="https://github.com/NOMBER/KotoClick/releases/latest/download/KotoClick.exe" data-i18n="downloadBtn">⬇ Скачать KotoClick.exe</a>
+          <a class="btn ghost" href="https://github.com/NOMBER/KotoClick" data-i18n="sourceBtn">Исходный код / Source</a>
         </div>
-        <p class="en" data-i18n-html="downloadEn">Скачать KotoClick.exe для Windows · <a href="https://github.com/YOUR_USER/YOUR_REPO/releases">все версии</a></p>
+        <p class="en" data-i18n-html="downloadEn">Скачать KotoClick.exe для Windows · <a href="https://github.com/NOMBER/KotoClick/releases">все версии</a></p>
         <p class="note" style="margin-top:0" data-i18n-html="downloadNote">Не хочешь запускать чужой <code>.exe</code>? Это нормально. Скачай исходный код и запусти <code>run.bat</code> или собери свой <code>KotoClick.exe</code> через <code>build.bat</code> — <a href="#install">как установить</a>.</p>
       </div>
       <div class="safe">
@@ -268,7 +255,7 @@
       <p class="sub" data-i18n-html="installSub">Из исходников: нужен Windows и Python. Всё остальное сделает <code>run.bat</code>. Готовый <code>.exe</code> — в блоке <a href="#download">«Скачать»</a>.</p>
       <ol class="steps" style="padding:0;margin:0">
         <li data-i18n-html="install1">Установи Python с <a href="https://www.python.org/downloads/">python.org</a> и отметь галочку «Add python.exe to PATH».</li>
-        <li data-i18n-html="install2">Скачай проект с <a href="[ПЛЕЙСХОЛДЕР — ссылка на репозиторий GitHub]">GitHub</a> и распакуй.</li>
+        <li data-i18n-html="install2">Скачай проект с <a href="[https://github.com/NOMBER/KotoClick]">GitHub</a> и распакуй.</li>
         <li data-i18n-html="install3">Дважды кликни <code>run.bat</code>: при первом запуске он сам докачает зависимости (<code>PySide6</code>, <code>PySide6-Addons</code>, <code>pynput</code>) и запустит котика.</li>
         <li data-i18n-html="install4">Нужен отдельный <code>.exe</code>? Запусти <code>build.bat</code>, готовый <code>KotoClick.exe</code> появится прямо в папке проекта, рядом с <code>build.bat</code>.</li>
       </ol>
@@ -291,10 +278,10 @@
   <div class="wrap">
     <p data-i18n="footerTagline">🐾 КотоКлик — кликает нежно, работает преданно.</p>
     <p>
-      <a href="[ПЛЕЙСХОЛДЕР — ссылка на репозиторий GitHub]">GitHub</a>
+      <a href="[https://github.com/NOMBER/KotoClick]">GitHub</a>
       <a href="https://t.me/DownGrabBot?start=KotoClick" target="_blank" rel="noopener">@DownGrabBot</a>
     </p>
-    <p style="font-size:.85rem" data-i18n="footerMeta">Лицензия: [ПЛЕЙСХОЛДЕР] · Контакты: [ПЛЕЙСХОЛДЕР]</p>
+    <p style="font-size:.85rem" data-i18n="footerMeta">Лицензия: GNU GPL v3 · Контакты: [NomberProjects](https://NomberProjects.github.io)</p>
   </div>
 </footer>
 
@@ -320,7 +307,7 @@
     downloadSub: `Готовая программа для Windows — один файл <code>KotoClick.exe</code>, Python не нужен. Файл лежит в разделе Releases на GitHub, рядом с исходным кодом.`,
     downloadBtn: `⬇ Скачать KotoClick.exe`,
     sourceBtn: `Исходный код / Source`,
-    downloadEn: `Скачать KotoClick.exe для Windows · <a href="https://github.com/YOUR_USER/YOUR_REPO/releases">все версии</a>`,
+    downloadEn: `Скачать KotoClick.exe для Windows · <a href="https://github.com/NOMBER/KotoClick/releases">все версии</a>`,
     downloadNote: `Не хочешь запускать чужой <code>.exe</code>? Это нормально. Скачай исходный код и запусти <code>run.bat</code> или собери свой <code>KotoClick.exe</code> через <code>build.bat</code> — <a href="#install">как установить</a>.`,
     safe1Title: `🔓 Открытый код, без интернета`,
     safe1Text: `Весь код открыт на GitHub, его можно прочитать. Программа ничего не скачивает и не отправляет, без автозапуска и без записи в реестр. Единственная ссылка — на Telegram-бота, она открывается в браузере только если ты сам по ней нажмёшь.`,
@@ -370,14 +357,14 @@
     installTitle: `Как установить`,
     installSub: `Из исходников: нужен Windows и Python. Всё остальное сделает <code>run.bat</code>. Готовый <code>.exe</code> — в блоке <a href="#download">«Скачать»</a>.`,
     install1: `Установи Python с <a href="https://www.python.org/downloads/">python.org</a> и отметь галочку «Add python.exe to PATH».`,
-    install2: `Скачай проект с <a href="[ПЛЕЙСХОЛДЕР — ссылка на репозиторий GitHub]">GitHub</a> и распакуй.`,
+    install2: `Скачай проект с <a href="[https://github.com/NOMBER/KotoClick]">GitHub</a> и распакуй.`,
     install3: `Дважды кликни <code>run.bat</code>: при первом запуске он сам докачает зависимости (<code>PySide6</code>, <code>PySide6-Addons</code>, <code>pynput</code>) и запустит котика.`,
     install4: `Нужен отдельный <code>.exe</code>? Запусти <code>build.bat</code>, готовый <code>KotoClick.exe</code> появится прямо в папке проекта, рядом с <code>build.bat</code>.`,
     installNote: `Антивирус может ложно ругаться на собранный <code>.exe</code>, потому что программа ловит глобальные горячие клавиши. Поэтому лучше запускать из исходников или собирать самому. Некоторые игры с античитом могут блокировать автокликеры.`,
     botTitle: `📥 Кстати, у нас есть Telegram-бот для скачивания видео`,
     botText: `Загляни в <a href="https://t.me/DownGrabBot?start=KotoClick" target="_blank" rel="noopener">@DownGrabBot</a>. Котик иногда сам напоминает о нём, примерно раз в полчаса, и только когда не занят.`,
     footerTagline: `🐾 КотоКлик — кликает нежно, работает преданно.`,
-    footerMeta: `Лицензия: [ПЛЕЙСХОЛДЕР] · Контакты: [ПЛЕЙСХОЛДЕР]`
+    footerMeta: `Лицензия: GNU GPL v3 · Контакты: [NomberProjects](https://NomberProjects.github.io)`
   };
   const I18N_ru = Object.assign({}, I18N_ru_a, I18N_ru_b);
   const I18N_en_a = {
@@ -401,7 +388,7 @@
     downloadSub: `A ready-to-run Windows program — a single <code>KotoClick.exe</code> file, no Python required. It lives in the Releases section on GitHub, right next to the source code.`,
     downloadBtn: `⬇ Download KotoClick.exe`,
     sourceBtn: `Source code`,
-    downloadEn: `Download KotoClick.exe for Windows · <a href="https://github.com/YOUR_USER/YOUR_REPO/releases">all releases</a>`,
+    downloadEn: `Download KotoClick.exe for Windows · <a href="https://github.com/NOMBER/KotoClick/releases">all releases</a>`,
     downloadNote: `Don't want to run a stranger's <code>.exe</code>? That's fair. Grab the source code and run <code>run.bat</code>, or build your own <code>KotoClick.exe</code> with <code>build.bat</code> — <a href="#install">see how to install</a>.`,
     safe1Title: `🔓 Open source, no internet`,
     safe1Text: `All the code is open on GitHub, ready to read. The program never downloads or sends anything — no autostart, no registry writes. The only link points to a Telegram bot and opens in your browser only if you click it yourself.`,
@@ -451,14 +438,14 @@
     installTitle: `How to install`,
     installSub: `From source: you need Windows and Python. <code>run.bat</code> handles the rest. A ready <code>.exe</code> is in the <a href="#download">Download</a> section.`,
     install1: `Install Python from <a href="https://www.python.org/downloads/">python.org</a> and tick "Add python.exe to PATH".`,
-    install2: `Download the project from <a href="[PLACEHOLDER — GitHub repo link]">GitHub</a> and unpack it.`,
+    install2: `Download the project from <a href="[https://github.com/NOMBER/KotoClick]">GitHub</a> and unpack it.`,
     install3: `Double-click <code>run.bat</code>: on first launch it downloads the dependencies (<code>PySide6</code>, <code>PySide6-Addons</code>, <code>pynput</code>) and starts the cat.`,
     install4: `Need a standalone <code>.exe</code>? Run <code>build.bat</code> and a ready <code>KotoClick.exe</code> appears right in the project folder, next to <code>build.bat</code>.`,
     installNote: `An antivirus may falsely flag the built <code>.exe</code> because the program captures global hotkeys. That's why running from source or building it yourself is safer. Some games with anti-cheat may block autoclickers.`,
     botTitle: `📥 By the way, we have a Telegram bot for downloading videos`,
     botText: `Check out <a href="https://t.me/DownGrabBot?start=KotoClick" target="_blank" rel="noopener">@DownGrabBot</a>. The cat sometimes reminds you about it, roughly once every half hour, and only when it's not busy.`,
     footerTagline: `🐾 KotoClick — clicks gently, works faithfully.`,
-    footerMeta: `License: [PLACEHOLDER] · Contact: [PLACEHOLDER]`
+    footerMeta: `License: GNU GPL v3 · Contact: [NomberProjects](https://NomberProjects.github.io)`
   };
   const I18N_en = Object.assign({}, I18N_en_a, I18N_en_b);
 
