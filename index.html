@@ -122,7 +122,7 @@
         <div class="actions">
           <a class="btn" href="#download" data-i18n="heroDownload">Скачать для Windows</a>
           <a class="btn ghost" href="#install" data-i18n="heroInstall">Как установить</a>
-          <a class="btn ghost" href="[https://github.com/NOMBER/KotoClick]" data-i18n="heroGithub">GitHub</a>
+          <a class="btn ghost" href="https://github.com/NOMBER/KotoClick" data-i18n="heroGithub">GitHub</a>
         </div>
       </div>
       <div class="cat-box">
@@ -255,7 +255,7 @@
       <p class="sub" data-i18n-html="installSub">Из исходников: нужен Windows и Python. Всё остальное сделает <code>run.bat</code>. Готовый <code>.exe</code> — в блоке <a href="#download">«Скачать»</a>.</p>
       <ol class="steps" style="padding:0;margin:0">
         <li data-i18n-html="install1">Установи Python с <a href="https://www.python.org/downloads/">python.org</a> и отметь галочку «Add python.exe to PATH».</li>
-        <li data-i18n-html="install2">Скачай проект с <a href="[https://github.com/NOMBER/KotoClick]">GitHub</a> и распакуй.</li>
+        <li data-i18n-html="install2">Скачай проект с <a href="https://github.com/NOMBER/KotoClick">GitHub</a> и распакуй.</li>
         <li data-i18n-html="install3">Дважды кликни <code>run.bat</code>: при первом запуске он сам докачает зависимости (<code>PySide6</code>, <code>PySide6-Addons</code>, <code>pynput</code>) и запустит котика.</li>
         <li data-i18n-html="install4">Нужен отдельный <code>.exe</code>? Запусти <code>build.bat</code>, готовый <code>KotoClick.exe</code> появится прямо в папке проекта, рядом с <code>build.bat</code>.</li>
       </ol>
@@ -278,10 +278,10 @@
   <div class="wrap">
     <p data-i18n="footerTagline">🐾 КотоКлик — кликает нежно, работает преданно.</p>
     <p>
-      <a href="[https://github.com/NOMBER/KotoClick]">GitHub</a>
+      <a href="https://github.com/NOMBER/KotoClick">GitHub</a>
       <a href="https://t.me/DownGrabBot?start=KotoClick" target="_blank" rel="noopener">@DownGrabBot</a>
     </p>
-    <p style="font-size:.85rem" data-i18n="footerMeta">Лицензия: GNU GPL v3 · Контакты: [NomberProjects](https://NomberProjects.github.io)</p>
+    <p style="font-size:.85rem" data-i18n-html="footerMeta">Лицензия: GNU GPL v3 · Контакты: <a href="https://NomberProjects.github.io" target="_blank" rel="noopener">NomberProjects</a></p>
   </div>
 </footer>
 
@@ -357,14 +357,14 @@
     installTitle: `Как установить`,
     installSub: `Из исходников: нужен Windows и Python. Всё остальное сделает <code>run.bat</code>. Готовый <code>.exe</code> — в блоке <a href="#download">«Скачать»</a>.`,
     install1: `Установи Python с <a href="https://www.python.org/downloads/">python.org</a> и отметь галочку «Add python.exe to PATH».`,
-    install2: `Скачай проект с <a href="[https://github.com/NOMBER/KotoClick]">GitHub</a> и распакуй.`,
+    install2: `Скачай проект с <a href="https://github.com/NOMBER/KotoClick">GitHub</a> и распакуй.`,
     install3: `Дважды кликни <code>run.bat</code>: при первом запуске он сам докачает зависимости (<code>PySide6</code>, <code>PySide6-Addons</code>, <code>pynput</code>) и запустит котика.`,
     install4: `Нужен отдельный <code>.exe</code>? Запусти <code>build.bat</code>, готовый <code>KotoClick.exe</code> появится прямо в папке проекта, рядом с <code>build.bat</code>.`,
     installNote: `Антивирус может ложно ругаться на собранный <code>.exe</code>, потому что программа ловит глобальные горячие клавиши. Поэтому лучше запускать из исходников или собирать самому. Некоторые игры с античитом могут блокировать автокликеры.`,
     botTitle: `📥 Кстати, у нас есть Telegram-бот для скачивания видео`,
     botText: `Загляни в <a href="https://t.me/DownGrabBot?start=KotoClick" target="_blank" rel="noopener">@DownGrabBot</a>. Котик иногда сам напоминает о нём, примерно раз в полчаса, и только когда не занят.`,
     footerTagline: `🐾 КотоКлик — кликает нежно, работает преданно.`,
-    footerMeta: `Лицензия: GNU GPL v3 · Контакты: [NomberProjects](https://NomberProjects.github.io)`
+    footerMeta: `Лицензия: GNU GPL v3 · Контакты: <a href="https://NomberProjects.github.io" target="_blank" rel="noopener">NomberProjects</a>`
   };
   const I18N_ru = Object.assign({}, I18N_ru_a, I18N_ru_b);
   const I18N_en_a = {
@@ -438,14 +438,14 @@
     installTitle: `How to install`,
     installSub: `From source: you need Windows and Python. <code>run.bat</code> handles the rest. A ready <code>.exe</code> is in the <a href="#download">Download</a> section.`,
     install1: `Install Python from <a href="https://www.python.org/downloads/">python.org</a> and tick "Add python.exe to PATH".`,
-    install2: `Download the project from <a href="[https://github.com/NOMBER/KotoClick]">GitHub</a> and unpack it.`,
+    install2: `Download the project from <a href="https://github.com/NOMBER/KotoClick">GitHub</a> and unpack it.`,
     install3: `Double-click <code>run.bat</code>: on first launch it downloads the dependencies (<code>PySide6</code>, <code>PySide6-Addons</code>, <code>pynput</code>) and starts the cat.`,
     install4: `Need a standalone <code>.exe</code>? Run <code>build.bat</code> and a ready <code>KotoClick.exe</code> appears right in the project folder, next to <code>build.bat</code>.`,
     installNote: `An antivirus may falsely flag the built <code>.exe</code> because the program captures global hotkeys. That's why running from source or building it yourself is safer. Some games with anti-cheat may block autoclickers.`,
     botTitle: `📥 By the way, we have a Telegram bot for downloading videos`,
     botText: `Check out <a href="https://t.me/DownGrabBot?start=KotoClick" target="_blank" rel="noopener">@DownGrabBot</a>. The cat sometimes reminds you about it, roughly once every half hour, and only when it's not busy.`,
     footerTagline: `🐾 KotoClick — clicks gently, works faithfully.`,
-    footerMeta: `License: GNU GPL v3 · Contact: [NomberProjects](https://NomberProjects.github.io)`
+    footerMeta: `License: GNU GPL v3 · Contact: <a href="https://NomberProjects.github.io" target="_blank" rel="noopener">NomberProjects</a>`
   };
   const I18N_en = Object.assign({}, I18N_en_a, I18N_en_b);
 
