@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ru" data-force-lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Link previews (Telegram, Discord, etc.) read these static tags without running JS, so this /ru/ copy carries the Russian preview; the page language still switches via the script below. -->
+<title>КотоКлик (KotoClick) — кликер, где котик кликает за тебя</title>
+<meta name="description" content="КотоКлик (KotoClick) — автокликер для Windows с ленивым рыжим котиком: автоклик, макросы, звуки и вайбовая дискотека.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KotoClick">
+<meta property="og:title" content="КотоКлик (KotoClick) — кликер, где котик кликает за тебя">
+<meta property="og:description" content="КотоКлик (KotoClick) — автокликер для Windows с ленивым рыжим котиком: автоклик, макросы, звуки и вайбовая дискотека.">
+<meta property="og:url" content="https://kotoclick.github.io/ru/">
+<meta property="og:locale" content="ru_RU"><meta property="og:locale:alternate" content="en_US">
+<link rel="canonical" href="https://kotoclick.github.io/ru/">
+<link rel="alternate" hreflang="en" href="https://kotoclick.github.io/">
+<link rel="alternate" hreflang="ru" href="https://kotoclick.github.io/ru/">
+<link rel="alternate" hreflang="x-default" href="https://kotoclick.github.io/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="КотоКлик (KotoClick) — кликер, где котик кликает за тебя">
+<meta name="twitter:description" content="КотоКлик (KotoClick) — автокликер для Windows с ленивым рыжим котиком: автоклик, макросы, звуки и вайбовая дискотека.">
+<style>
+  :root{
+    --bg:#2a1f1d; --bg2:#34262a; --card:#3b2c2f; --text:#fbefe3; --muted:#cdb7a6;
+    --orange:#ff9a3c; --orange2:#ffb066; --purple:#8b5fd0; --radius:22px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:"Nunito","Segoe UI",system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+  a{color:var(--orange2)}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  header.nav{position:sticky;top:0;z-index:10;background:rgba(42,31,29,.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.06)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .logo{font-weight:900;font-size:1.25rem;color:var(--orange);text-decoration:none}
+  .nav nav a{margin-left:18px;color:var(--muted);text-decoration:none;font-weight:700;font-size:.95rem}
+  .nav nav a:hover{color:var(--text)}
+  .btn{display:inline-block;padding:14px 26px;border-radius:999px;background:linear-gradient(180deg,var(--orange2),var(--orange));color:#2a1409;font-weight:900;text-decoration:none;box-shadow:0 8px 24px rgba(255,154,60,.35);transition:transform .15s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn.ghost{background:transparent;color:var(--text);border:2px solid rgba(255,255,255,.2);box-shadow:none}
+  .hero{padding:64px 0 48px;background:radial-gradient(900px 400px at 75% 20%,rgba(139,95,208,.25),transparent 70%)}
+  .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center}
+  .hero h1{font-size:clamp(2.4rem,6vw,4rem);line-height:1.05;margin:0 0 14px}
+  .hero h1 span{color:var(--orange)}
+  .hero p.lead{font-size:1.2rem;color:var(--muted);margin:0 0 26px;max-width:34em}
+  .hero .actions{display:flex;gap:12px;flex-wrap:wrap}
+  .cat-box{display:flex;justify-content:center}
+  .cat{width:min(340px,80%);cursor:pointer;filter:drop-shadow(0 20px 30px rgba(0,0,0,.4))}
+  .cat .eyes-open{display:none}
+  .cat.awake .eyes-open{display:inline}
+  .cat.awake .eyes-closed{display:none}
+  .cat.awake .hat{animation:bob .35s ease-in-out infinite alternate;transform-origin:120px 70px}
+  .zzz{font-weight:900;fill:var(--muted);font-size:20px}
+  .cat.awake .zzz{display:none}
+  @keyframes bob{from{transform:rotate(-4deg) translateY(0)}to{transform:rotate(4deg) translateY(-4px)}}
+  .say{margin-top:12px;text-align:center;color:var(--muted);font-style:italic;min-height:1.6em}
+  section{padding:64px 0}
+  section h2{font-size:clamp(1.7rem,4vw,2.4rem);margin:0 0 8px}
+  section .sub{color:var(--muted);margin:0 0 34px;max-width:40em}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+  .card{background:var(--card);border-radius:var(--radius);padding:24px;border:1px solid rgba(255,255,255,.05);box-shadow:0 10px 30px rgba(0,0,0,.2)}
+  .card .ic{font-size:2rem;margin-bottom:8px}
+  .card h3{margin:0 0 6px;font-size:1.15rem}
+  .card p{margin:0;color:var(--muted)}
+  .alt{background:var(--bg2)}
+  .steps{counter-reset:s;display:grid;gap:14px;max-width:760px}
+  .steps li{list-style:none;counter-increment:s;background:var(--card);border-radius:var(--radius);padding:18px 20px 18px 64px;position:relative}
+  .steps li::before{content:counter(s);position:absolute;left:18px;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;background:var(--orange);color:#2a1409;font-weight:900;display:grid;place-items:center}
+  code{background:rgba(0,0,0,.35);padding:2px 8px;border-radius:8px;font-size:.92em;word-break:break-word}
+  pre{background:rgba(0,0,0,.35);padding:16px;border-radius:16px;overflow:auto;max-width:760px}
+  .note{max-width:760px;color:var(--muted);font-size:.95rem;margin-top:18px}
+  .sounds{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+  .soundlist{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+  .soundlist li{background:var(--card);border-radius:16px;padding:12px 16px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  .soundlist li b{color:var(--orange2)}
+  .formats{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+  .tag{background:rgba(139,95,208,.25);border:1px solid rgba(139,95,208,.5);padding:4px 14px;border-radius:999px;font-weight:800}
+  .bell{background:var(--card);border-radius:var(--radius);padding:22px}
+  .dl{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+  .dl .actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:6px 0 10px}
+  .dl .btn.big{font-size:1.1rem;padding:16px 30px}
+  .dl .en{color:var(--muted);font-size:.9rem;margin:0 0 18px}
+  .dl .card h3{display:flex;gap:8px;align-items:baseline}
+  .dl .card p+p,.dl .card pre{margin-top:10px}
+  .dl .card pre{margin-bottom:0;font-size:.85rem;white-space:pre-wrap;overflow-wrap:anywhere}
+  .dl .card ol{margin:8px 0 0;padding-left:20px;color:var(--muted)}
+  .safe{display:grid;gap:14px}
+  footer{background:#201715;padding:36px 0;color:var(--muted);text-align:center}
+  footer a{margin:0 8px}
+  .lang{display:inline-flex;align-items:center;gap:8px;margin-left:18px;cursor:pointer;user-select:none}
+  .lang-opt{font-weight:900;font-size:.82rem;color:var(--muted);transition:color .15s}
+  .lang-opt.on{color:var(--orange)}
+  .switch{position:relative;width:46px;height:24px;flex:0 0 auto;background:rgba(255,255,255,.14);border-radius:999px;display:inline-block}
+  .switch input{position:absolute;inset:0;opacity:0;cursor:pointer;margin:0}
+  .knob{position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;background:linear-gradient(180deg,var(--orange2),var(--orange));transition:transform .2s;pointer-events:none}
+  .switch input:checked + .knob{transform:translateX(22px)}
+  .badge{display:inline-block;background:linear-gradient(180deg,var(--orange2),var(--orange));color:#2a1409;font-weight:900;padding:6px 16px;border-radius:999px;font-size:.9rem;margin:0 0 16px;box-shadow:0 6px 18px rgba(255,154,60,.3)}
+  @media (max-width:820px){
+    .hero .wrap,.sounds,.dl{grid-template-columns:1fr}
+    .hero{padding-top:36px}
+    .nav nav a:not(.btn){display:none}
+  }
+  @media (prefers-reduced-motion:reduce){.cat.awake .hat{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" data-i18n="logo">🐾 КотоКлик</a>
+    <nav>
+      <a href="#features" data-i18n="navFeatures">Возможности</a>
+      <a href="#sounds" data-i18n="navSounds">Звуки</a>
+      <a href="#install" data-i18n="navInstall">Установка</a>
+      <a class="btn" href="#download" style="padding:8px 18px" data-i18n="navDownload">Скачать</a>
+      <label class="lang" title="RU / EN">
+        <span class="lang-opt" data-lang-label="ru">RU</span>
+        <span class="switch">
+          <input type="checkbox" id="langToggle" aria-label="RU / EN">
+          <span class="knob"></span>
+        </span>
+        <span class="lang-opt" data-lang-label="en">EN</span>
+      </label>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- Hero -->
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <span class="badge" data-i18n="heroBadge">🏆 Самый прогрессивный автокликер на рынке</span>
+        <h1 data-i18n-html="heroTitle">КотоКлик:<br><span>котик кликает за тебя</span></h1>
+        <p data-i18n="heroTagline" style="margin:0 0 14px;color:var(--muted);font-weight:700;letter-spacing:.02em">KotoClick — котик кликает за тебя</p>
+        <p class="lead" data-i18n="heroLead">Автокликер для Windows с ленивым рыжим котиком и мышкой-помощницей: автоклик, скролл мыши, drag &amp; drop и запись макросов. Нажал клавишу, и лапки заработали.</p>
+        <div class="actions">
+          <a class="btn" href="#download" data-i18n="heroDownload">Скачать для Windows</a>
+          <a class="btn ghost" href="#install" data-i18n="heroInstall">Как установить</a>
+          <a class="btn ghost" href="https://github.com/NOMBER/KotoClick" data-i18n="heroGithub">GitHub</a>
+        </div>
+      </div>
+      <div class="cat-box">
+        <div>
+          <svg id="cat" class="cat" viewBox="0 0 240 240" role="img" aria-label="Рыжий котик" data-i18n-aria="catAria">
+            <!-- body -->
+            <ellipse cx="120" cy="170" rx="72" ry="56" fill="#f59a3d"/>
+            <ellipse cx="120" cy="185" rx="38" ry="34" fill="#fde3bd"/>
+            <!-- tail -->
+            <path d="M188 190c30-4 34-44 10-52" fill="none" stroke="#e8842b" stroke-width="16" stroke-linecap="round"/>
+            <!-- ears -->
+            <path d="M60 70 70 24l34 28z" fill="#f59a3d"/><path d="M180 70 170 24l-34 28z" fill="#f59a3d"/>
+            <path d="M72 58 76 40l16 12z" fill="#f4b3a1"/><path d="M168 58 164 40l-16 12z" fill="#f4b3a1"/>
+            <!-- head -->
+            <ellipse cx="120" cy="92" rx="66" ry="56" fill="#f59a3d"/>
+            <ellipse cx="120" cy="110" rx="40" ry="30" fill="#fde3bd"/>
+            <path d="M120 40v22M100 44l5 16M140 44l-5 16" stroke="#e2791f" stroke-width="5" stroke-linecap="round"/>
+            <!-- headset -->
+            <g class="hat">
+              <path d="M60 96c-6-56 38-70 66-66 30 4 52 28 50 54" fill="none" stroke="#7a52c2" stroke-width="9" stroke-linecap="round"/>
+              <rect x="46" y="84" width="22" height="34" rx="11" fill="#8b5fd0"/>
+            </g>
+            <!-- eyes closed -->
+            <g class="eyes-closed" fill="none" stroke="#4a2c14" stroke-width="4" stroke-linecap="round">
+              <path d="M88 92q10 8 20 0"/><path d="M132 92q10 8 20 0"/>
+            </g>
+            <!-- eyes open -->
+            <g class="eyes-open">
+              <circle cx="98" cy="92" r="11" fill="#fff"/><circle cx="142" cy="92" r="11" fill="#fff"/>
+              <circle cx="100" cy="93" r="7" fill="#3a2010"/><circle cx="144" cy="93" r="7" fill="#3a2010"/>
+              <circle cx="102" cy="90" r="2.5" fill="#fff"/><circle cx="146" cy="90" r="2.5" fill="#fff"/>
+            </g>
+            <!-- nose, mouth -->
+            <path d="M114 108h12l-6 7z" fill="#e88a8a"/>
+            <path d="M120 115q-8 10-18 4M120 115q8 10 18 4" fill="none" stroke="#4a2c14" stroke-width="3" stroke-linecap="round"/>
+            <!-- button and paws -->
+            <ellipse cx="120" cy="196" rx="44" ry="20" fill="#d9946a"/>
+            <ellipse cx="120" cy="190" rx="22" ry="9" fill="#a56cf0"/>
+            <ellipse cx="108" cy="176" rx="15" ry="11" fill="#fde3bd"/>
+            <ellipse cx="146" cy="178" rx="13" ry="10" fill="#fde3bd"/>
+            <text class="zzz" x="168" y="42">z z</text>
+          </svg>
+          <div class="say" id="say">Котик дремлет… Нажми на него.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Download -->
+  <section id="download" class="alt">
+    <div class="wrap dl">
+      <div>
+        <h2 data-i18n="downloadTitle">Скачать КотоКлик</h2>
+        <p class="sub" style="margin-bottom:18px" data-i18n-html="downloadSub">Готовая программа для Windows — один файл <code>KotoClick.exe</code>, Python не нужен. Файл лежит в разделе Releases на GitHub, рядом с исходным кодом.</p>
+        <div class="actions">
+          <a class="btn big" href="https://github.com/NOMBER/KotoClick/releases/latest/download/KotoClick.exe" data-i18n="downloadBtn">⬇ Скачать KotoClick.exe</a>
+          <a class="btn ghost" href="https://github.com/NOMBER/KotoClick" data-i18n="sourceBtn">Исходный код / Source</a>
+        </div>
+        <p class="en" data-i18n-html="downloadEn">Скачать KotoClick.exe для Windows · <a href="https://github.com/NOMBER/KotoClick/releases">все версии</a></p>
+        <p class="note" style="margin-top:0" data-i18n-html="downloadNote">Не хочешь запускать чужой <code>.exe</code>? Это нормально. Скачай исходный код и запусти <code>run.bat</code> или собери свой <code>KotoClick.exe</code> через <code>build.bat</code> — <a href="#install">как установить</a>.</p>
+      </div>
+      <div class="safe">
+        <div class="card">
+          <h3 data-i18n="safe1Title">🔓 Открытый код, без интернета</h3>
+          <p data-i18n="safe1Text">Весь код открыт на GitHub, его можно прочитать. Программа ничего не скачивает и не отправляет, без автозапуска и без записи в реестр. Единственная ссылка — на Telegram-бота, она открывается в браузере только если ты сам по ней нажмёшь.</p>
+        </div>
+        <div class="card">
+          <h3 data-i18n="safe2Title">🔎 Проверь файл</h3>
+          <p data-i18n="safe2Text">Контрольная сумма SHA-256 опубликована в описании релиза. Открой PowerShell в папке со скачанным файлом и выполни:</p>
+          <pre><code>Get-FileHash .\KotoClick.exe -Algorithm SHA256</code></pre>
+          <p data-i18n-html="safe2Check">Если строка <code>Hash</code> совпадает с суммой в релизе, файл тот же, что выложил автор.</p>
+        </div>
+        <div class="card">
+          <h3 data-i18n="safe3Title">🛡️ Если Windows предупреждает</h3>
+          <p data-i18n="safe3Text">Файл не подписан цифровой подписью и собран PyInstaller, а программа ставит глобальные перехватчики клавиатуры и мыши (для горячих клавиш). Поэтому SmartScreen или антивирус могут насторожиться. Если ты проверил сумму и доверяешь файлу:</p>
+          <ol>
+            <li data-i18n="safe3li1">в окне «Система Windows защитила ваш компьютер» нажми «Подробнее»;</li>
+            <li data-i18n="safe3li2">затем «Выполнить в любом случае».</li>
+          </ol>
+          <p data-i18n="safe3Note">Сомневаешься — собери программу из исходников сам.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features">
+    <div class="wrap">
+      <h2 data-i18n="featuresTitle">Что умеет КотоКлик</h2>
+      <p class="sub" data-i18n="featuresSub">Простая программа на Python с красивым окном, без интернета и без лишнего.</p>
+      <div class="grid">
+        <div class="card"><div class="ic">🖱️</div><h3 data-i18n="f1Title">Автоклик</h3><p data-i18n="f1Text">Клавиша включает клики там, где стоит курсор. Интервал в мс или секундах, кнопка мыши, одинарный или двойной клик, число повторов.</p></div>
+        <div class="card"><div class="ic">🖲️</div><h3 data-i18n="f9Title">Скролл и drag &amp; drop</h3><p data-i18n="f9Text">Прокрутка колёсиком мыши и перетаскивание (drag &amp; drop) поддерживаются наравне с кликами: КотоКлик повторит любое движение мышки.</p></div>
+        <div class="card"><div class="ic">🐭</div><h3 data-i18n="f2Title">Мышкины макросы</h3><p data-i18n="f2Text">Запиши свои клики, зажатие кнопок, перетаскивание (drag &amp; drop) и колёсико мыши, при желании движения мыши и нажатия клавиш, и котик повторит их по кругу или нужное число раз.</p></div>
+        <div class="card"><div class="ic">📂</div><h3 data-i18n="f3Title">Библиотека макросов</h3><p data-i18n-html="f3Text">Макросы лежат в папке <code>macros</code>. Переключайся списком, а в меню «Ещё» есть переименование, копия, удаление и импорт.</p></div>
+        <div class="card"><div class="ic">🎧</div><h3 data-i18n="f4Title">Живой котик</h3><p data-i18n="f4Text">Спит с закрытыми глазами, кликает с открытыми, гарнитура подпрыгивает на каждый клик. Всё это можно выключить.</p></div>
+        <div class="card"><div class="ic">🪩</div><h3 data-i18n="f5Title">Вайбовая дискотека</h3><p data-i18n="f5Text">Если кликать очень быстро и долго, котик устраивает дискотеку с лучами, диско-шаром и нотами.</p></div>
+        <div class="card"><div class="ic">💬</div><h3 data-i18n="f6Title">Болтливый котик</h3><p data-i18n="f6Text">Короткие милые фразы на русском и английском на разные ситуации. Переключатель RU | EN работает сразу, без перезапуска.</p></div>
+        <div class="card"><div class="ic">🛑</div><h3 data-i18n="f7Title">Стоп-кран</h3><p data-i18n-html="f7Text"><code>Esc</code> или <code>F9</code> сразу останавливают всё. Горячие клавиши назначаются прямо в окне.</p></div>
+        <div class="card"><div class="ic">🔒</div><h3 data-i18n="f8Title">Без сюрпризов</h3><p data-i18n="f8Text">Без автозапуска, без записи в реестр, ничего не отправляет. Макросы хранятся только у тебя в файлах.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sounds -->
+  <section id="sounds" class="alt">
+    <div class="wrap sounds">
+      <div>
+        <h2 data-i18n="soundsTitle">Звуки, которые можно заменить</h2>
+        <p class="sub" style="margin-bottom:14px" data-i18n="soundsSub">Отсчёт, мяуканье, тихие тики записи. Каждый звук включается отдельно, прослушивается кнопкой ▶ и заменяется твоим файлом.</p>
+        <div class="formats">
+          <span class="tag">WAV</span><span class="tag">MP3</span><span class="tag">OGG</span><span class="tag">M4A</span><span class="tag">AAC</span><span class="tag">FLAC</span>
+        </div>
+        <p class="note" style="margin-top:0" data-i18n-html="soundsNote">Для MP3, OGG, M4A, AAC и FLAC нужен пакет <code>PySide6-Addons</code> (он уже в <code>requirements.txt</code>). Есть общая громкость, а длинные файлы обрезаются на 5 секундах. Если файл не открылся, котик скажет об этом и сыграет стандартный звук.</p>
+      </div>
+      <ul class="soundlist">
+        <li><span data-i18n="sound1">Отсчёт «пик-пик-пик» перед записью</span><b data-i18n="sound1b">3 секунды</b></li>
+        <li><span data-i18n="sound2">Мяуканье — запись пошла</span><b data-i18n="sound2b">можно заменить</b></li>
+        <li><span data-i18n="sound3">Конец записи</span><b data-i18n="sound3b">вкл / выкл</b></li>
+        <li><span data-i18n="sound4">Старт макроса</span><b data-i18n="sound4b">вкл / выкл</b></li>
+        <li><span data-i18n="sound5">Тихие тики во время записи</span><b data-i18n="sound5b">чтобы не забыть</b></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Install -->
+  <section id="install">
+    <div class="wrap">
+      <h2 data-i18n="installTitle">Как установить</h2>
+      <p class="sub" data-i18n-html="installSub">Из исходников: нужен Windows и Python. Всё остальное сделает <code>run.bat</code>. Готовый <code>.exe</code> — в блоке <a href="#download">«Скачать»</a>.</p>
+      <ol class="steps" style="padding:0;margin:0">
+        <li data-i18n-html="install1">Установи Python с <a href="https://www.python.org/downloads/">python.org</a> и отметь галочку «Add python.exe to PATH».</li>
+        <li data-i18n-html="install2">Скачай проект с <a href="https://github.com/NOMBER/KotoClick">GitHub</a> и распакуй.</li>
+        <li data-i18n-html="install3">Дважды кликни <code>run.bat</code>: при первом запуске он сам докачает зависимости (<code>PySide6</code>, <code>PySide6-Addons</code>, <code>pynput</code>) и запустит котика.</li>
+        <li data-i18n-html="install4">Нужен отдельный <code>.exe</code>? Запусти <code>build.bat</code>, готовый <code>KotoClick.exe</code> появится прямо в папке проекта, рядом с <code>build.bat</code>.</li>
+      </ol>
+      <p class="note" data-i18n-html="installNote">Антивирус может ложно ругаться на собранный <code>.exe</code>, потому что программа ловит глобальные горячие клавиши. Поэтому лучше запускать из исходников или собирать самому. Некоторые игры с античитом могут блокировать автокликеры.</p>
+    </div>
+  </section>
+
+  <!-- Bot -->
+  <section class="alt" style="padding:44px 0">
+    <div class="wrap">
+      <div class="bell">
+        <h3 style="margin-top:0" data-i18n="botTitle">📥 Кстати, у нас есть Telegram-бот для скачивания видео</h3>
+        <p style="margin:0" data-i18n-html="botText">Загляни в <a href="https://t.me/DownGrabBot?start=KotoClick" target="_blank" rel="noopener">@DownGrabBot</a>. Котик иногда сам напоминает о нём, примерно раз в полчаса, и только когда не занят.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p data-i18n="footerTagline">🐾 КотоКлик — кликает нежно, работает преданно.</p>
+    <p>
+      <a href="https://github.com/NOMBER/KotoClick">GitHub</a>
+      <a href="https://t.me/DownGrabBot?start=KotoClick" target="_blank" rel="noopener">@DownGrabBot</a>
+    </p>
+    <p style="font-size:.85rem" data-i18n-html="footerMeta">Лицензия: GNU GPL v3 · Контакты: <a href="https://NomberProjects.github.io" target="_blank" rel="noopener">NomberProjects</a></p>
+  </div>
+</footer>
+
+<script>
+  const I18N_ru_a = {
+    title: `КотоКлик (KotoClick) — кликер, где котик кликает за тебя`,
+    metaDescription: `КотоКлик (KotoClick) — автокликер для Windows с ленивым рыжим котиком: автоклик, макросы, звуки и вайбовая дискотека.`,
+    logo: `🐾 КотоКлик`,
+    navFeatures: `Возможности`,
+    navSounds: `Звуки`,
+    navInstall: `Установка`,
+    navDownload: `Скачать`,
+    heroTitle: `КотоКлик:<br><span>котик кликает за тебя</span>`,
+    heroTagline: `KotoClick — котик кликает за тебя`,
+    heroLead: `Автокликер для Windows с ленивым рыжим котиком и мышкой-помощницей: автоклик, скролл мыши, drag & drop и запись макросов. Нажал клавишу, и лапки заработали.`,
+    heroDownload: `Скачать для Windows`,
+    heroInstall: `Как установить`,
+    heroGithub: `GitHub`,
+    heroBadge: `🏆 Самый прогрессивный автокликер на рынке`,
+    catAria: `Рыжий котик`,
+    sayIdle: `Котик дремлет… Нажми на него.`,
+    downloadTitle: `Скачать КотоКлик`,
+    downloadSub: `Готовая программа для Windows — один файл <code>KotoClick.exe</code>, Python не нужен. Файл лежит в разделе Releases на GitHub, рядом с исходным кодом.`,
+    downloadBtn: `⬇ Скачать KotoClick.exe`,
+    sourceBtn: `Исходный код / Source`,
+    downloadEn: `Скачать KotoClick.exe для Windows · <a href="https://github.com/NOMBER/KotoClick/releases">все версии</a>`,
+    downloadNote: `Не хочешь запускать чужой <code>.exe</code>? Это нормально. Скачай исходный код и запусти <code>run.bat</code> или собери свой <code>KotoClick.exe</code> через <code>build.bat</code> — <a href="#install">как установить</a>.`,
+    safe1Title: `🔓 Открытый код, без интернета`,
+    safe1Text: `Весь код открыт на GitHub, его можно прочитать. Программа ничего не скачивает и не отправляет, без автозапуска и без записи в реестр. Единственная ссылка — на Telegram-бота, она открывается в браузере только если ты сам по ней нажмёшь.`,
+    safe2Title: `🔎 Проверь файл`,
+    safe2Text: `Контрольная сумма SHA-256 опубликована в описании релиза. Открой PowerShell в папке со скачанным файлом и выполни:`,
+    safe2Check: `Если строка <code>Hash</code> совпадает с суммой в релизе, файл тот же, что выложил автор.`,
+    safe3Title: `🛡️ Если Windows предупреждает`,
+    safe3Text: `Файл не подписан цифровой подписью и собран PyInstaller, а программа ставит глобальные перехватчики клавиатуры и мыши (для горячих клавиш). Поэтому SmartScreen или антивирус могут насторожиться. Если ты проверил сумму и доверяешь файлу:`,
+    safe3li1: `в окне «Система Windows защитила ваш компьютер» нажми «Подробнее»;`,
+    safe3li2: `затем «Выполнить в любом случае».`,
+    safe3Note: `Сомневаешься — собери программу из исходников сам.`,
+    featuresTitle: `Что умеет КотоКлик`,
+    featuresSub: `Простая программа на Python с красивым окном, без интернета и без лишнего.`,
+    f1Title: `🖱️ Автоклик`,
+    f1Text: `Клавиша включает клики там, где стоит курсор. Интервал в мс или секундах, кнопка мыши, одинарный или двойной клик, число повторов.`,
+    f2Title: `🐭 Мышкины макросы`,
+    f2Text: `Запиши свои клики, зажатие кнопок, перетаскивание (drag & drop) и колёсико мыши, при желании движения мыши и нажатия клавиш, и котик повторит их по кругу или нужное число раз.`
+  };
+  const I18N_ru_b = {
+    f3Title: `📂 Библиотека макросов`,
+    f3Text: `Макросы лежат в папке <code>macros</code>. Переключайся списком, а в меню «Ещё» есть переименование, копия, удаление и импорт.`,
+    f4Title: `🎧 Живой котик`,
+    f4Text: `Спит с закрытыми глазами, кликает с открытыми, гарнитура подпрыгивает на каждый клик. Всё это можно выключить.`,
+    f5Title: `🪩 Вайбовая дискотека`,
+    f5Text: `Если кликать очень быстро и долго, котик устраивает дискотеку с лучами, диско-шаром и нотами.`,
+    f6Title: `💬 Болтливый котик`,
+    f6Text: `Короткие милые фразы на русском и английском на разные ситуации. Переключатель RU | EN работает сразу, без перезапуска.`,
+    f7Title: `🛑 Стоп-кран`,
+    f7Text: `<code>Esc</code> или <code>F9</code> сразу останавливают всё. Горячие клавиши назначаются прямо в окне.`,
+    f8Title: `🔒 Без сюрпризов`,
+    f8Text: `Без автозапуска, без записи в реестр, ничего не отправляет. Макросы хранятся только у тебя в файлах.`,
+    f9Title: `🖲️ Скролл и drag & drop`,
+    f9Text: `Прокрутка колёсиком мыши и перетаскивание (drag & drop) поддерживаются наравне с кликами: КотоКлик повторит любое движение мышки.`,
+    soundsTitle: `Звуки, которые можно заменить`,
+    soundsSub: `Отсчёт, мяуканье, тихие тики записи. Каждый звук включается отдельно, прослушивается кнопкой ▶ и заменяется твоим файлом.`,
+    soundsNote: `Для MP3, OGG, M4A, AAC и FLAC нужен пакет <code>PySide6-Addons</code> (он уже в <code>requirements.txt</code>). Есть общая громкость, а длинные файлы обрезаются на 5 секундах. Если файл не открылся, котик скажет об этом и сыграет стандартный звук.`,
+    sound1: `Отсчёт «пик-пик-пик» перед записью`,
+    sound1b: `3 секунды`,
+    sound2: `Мяуканье — запись пошла`,
+    sound2b: `можно заменить`,
+    sound3: `Конец записи`,
+    sound3b: `вкл / выкл`,
+    sound4: `Старт макроса`,
+    sound4b: `вкл / выкл`,
+    sound5: `Тихие тики во время записи`,
+    sound5b: `чтобы не забыть`,
+    installTitle: `Как установить`,
+    installSub: `Из исходников: нужен Windows и Python. Всё остальное сделает <code>run.bat</code>. Готовый <code>.exe</code> — в блоке <a href="#download">«Скачать»</a>.`,
+    install1: `Установи Python с <a href="https://www.python.org/downloads/">python.org</a> и отметь галочку «Add python.exe to PATH».`,
+    install2: `Скачай проект с <a href="https://github.com/NOMBER/KotoClick">GitHub</a> и распакуй.`,
+    install3: `Дважды кликни <code>run.bat</code>: при первом запуске он сам докачает зависимости (<code>PySide6</code>, <code>PySide6-Addons</code>, <code>pynput</code>) и запустит котика.`,
+    install4: `Нужен отдельный <code>.exe</code>? Запусти <code>build.bat</code>, готовый <code>KotoClick.exe</code> появится прямо в папке проекта, рядом с <code>build.bat</code>.`,
+    installNote: `Антивирус может ложно ругаться на собранный <code>.exe</code>, потому что программа ловит глобальные горячие клавиши. Поэтому лучше запускать из исходников или собирать самому. Некоторые игры с античитом могут блокировать автокликеры.`,
+    botTitle: `📥 Кстати, у нас есть Telegram-бот для скачивания видео`,
+    botText: `Загляни в <a href="https://t.me/DownGrabBot?start=KotoClick" target="_blank" rel="noopener">@DownGrabBot</a>. Котик иногда сам напоминает о нём, примерно раз в полчаса, и только когда не занят.`,
+    footerTagline: `🐾 КотоКлик — кликает нежно, работает преданно.`,
+    footerMeta: `Лицензия: GNU GPL v3 · Контакты: <a href="https://NomberProjects.github.io" target="_blank" rel="noopener">NomberProjects</a>`
+  };
+  const I18N_ru = Object.assign({}, I18N_ru_a, I18N_ru_b);
+  const I18N_en_a = {
+    title: `KotoClick — the autoclicker where a cat clicks for you`,
+    metaDescription: `KotoClick — a Windows autoclicker with a lazy ginger cat: auto-click, macros, sounds and a groovy disco party.`,
+    logo: `🐾 KotoClick`,
+    navFeatures: `Features`,
+    navSounds: `Sounds`,
+    navInstall: `Install`,
+    navDownload: `Download`,
+    heroTitle: `KotoClick:<br><span>the cat clicks for you</span>`,
+    heroTagline: `KotoClick — the cat clicks for you`,
+    heroLead: `A Windows autoclicker with a lazy ginger cat and a mouse sidekick: auto-click, mouse scroll, drag & drop and macro recording. Hit a key and the paws get to work.`,
+    heroDownload: `Download for Windows`,
+    heroInstall: `How to install`,
+    heroGithub: `GitHub`,
+    heroBadge: `🏆 The most advanced autoclicker on the market`,
+    catAria: `Ginger cat`,
+    sayIdle: `The cat is napping… Click on it.`,
+    downloadTitle: `Download KotoClick`,
+    downloadSub: `A ready-to-run Windows program — a single <code>KotoClick.exe</code> file, no Python required. It lives in the Releases section on GitHub, right next to the source code.`,
+    downloadBtn: `⬇ Download KotoClick.exe`,
+    sourceBtn: `Source code`,
+    downloadEn: `Download KotoClick.exe for Windows · <a href="https://github.com/NOMBER/KotoClick/releases">all releases</a>`,
+    downloadNote: `Don't want to run a stranger's <code>.exe</code>? That's fair. Grab the source code and run <code>run.bat</code>, or build your own <code>KotoClick.exe</code> with <code>build.bat</code> — <a href="#install">see how to install</a>.`,
+    safe1Title: `🔓 Open source, no internet`,
+    safe1Text: `All the code is open on GitHub, ready to read. The program never downloads or sends anything — no autostart, no registry writes. The only link points to a Telegram bot and opens in your browser only if you click it yourself.`,
+    safe2Title: `🔎 Verify the file`,
+    safe2Text: `The SHA-256 checksum is published in the release notes. Open PowerShell in the folder with the downloaded file and run:`,
+    safe2Check: `If the <code>Hash</code> line matches the sum in the release, the file is exactly what the author published.`,
+    safe3Title: `🛡️ If Windows warns you`,
+    safe3Text: `The file has no digital signature, is built with PyInstaller, and the app installs global keyboard and mouse hooks (for hotkeys). That's why SmartScreen or an antivirus may raise an eyebrow. If you've verified the checksum and trust the file:`,
+    safe3li1: `in the "Windows protected your PC" dialog, click "More info";`,
+    safe3li2: `then "Run anyway".`,
+    safe3Note: `Still unsure? Build the program from source yourself.`,
+    featuresTitle: `What KotoClick can do`,
+    featuresSub: `A simple Python program with a pretty window — no internet, no clutter.`,
+    f1Title: `🖱️ Auto-click`,
+    f1Text: `A key turns on clicking wherever your cursor is. Interval in ms or seconds, mouse button, single or double click, repeat count.`,
+    f2Title: `🐭 Mouse macros`,
+    f2Text: `Record your clicks, button holds, drag & drop and the mouse wheel — plus mouse movement and key presses if you want — and the cat will repeat them on a loop or a set number of times.`
+  };
+  const I18N_en_b = {
+    f3Title: `📂 Macro library`,
+    f3Text: `Macros live in the <code>macros</code> folder. Switch between them in a list, and the "More" menu offers rename, copy, delete and import.`,
+    f4Title: `🎧 A lively cat`,
+    f4Text: `Sleeps with closed eyes, clicks with open ones, and the headset bounces on every click. All of it can be turned off.`,
+    f5Title: `🪩 Groovy disco`,
+    f5Text: `Click really fast for a while and the cat throws a disco party with beams, a mirror ball and notes.`,
+    f6Title: `💬 Chatty cat`,
+    f6Text: `Short, sweet phrases in Russian and English for every occasion. The RU | EN switch works instantly, no restart needed.`,
+    f7Title: `🛑 Emergency stop`,
+    f7Text: `<code>Esc</code> or <code>F9</code> stops everything at once. Hotkeys are set right in the window.`,
+    f8Title: `🔒 No surprises`,
+    f8Text: `No autostart, no registry writes, nothing sent anywhere. Macros stay in your own files.`,
+    f9Title: `🖲️ Scroll & drag & drop`,
+    f9Text: `Mouse wheel scrolling and drag & drop are supported just like clicks: KotoClick replays any mouse movement.`,
+    soundsTitle: `Sounds you can replace`,
+    soundsSub: `Countdown, meow, quiet recording ticks. Every sound can be toggled separately, previewed with ▶ and replaced with your own file.`,
+    soundsNote: `MP3, OGG, M4A, AAC and FLAC need the <code>PySide6-Addons</code> package (already in <code>requirements.txt</code>). There's a master volume, and long files are trimmed to 5 seconds. If a file can't be opened, the cat will tell you and play the default sound.`,
+    sound1: `Countdown "beep-beep-beep" before recording`,
+    sound1b: `3 seconds`,
+    sound2: `Meow — recording started`,
+    sound2b: `replaceable`,
+    sound3: `End of recording`,
+    sound3b: `on / off`,
+    sound4: `Macro start`,
+    sound4b: `on / off`,
+    sound5: `Quiet ticks while recording`,
+    sound5b: `so you don't forget`,
+    installTitle: `How to install`,
+    installSub: `From source: you need Windows and Python. <code>run.bat</code> handles the rest. A ready <code>.exe</code> is in the <a href="#download">Download</a> section.`,
+    install1: `Install Python from <a href="https://www.python.org/downloads/">python.org</a> and tick "Add python.exe to PATH".`,
+    install2: `Download the project from <a href="https://github.com/NOMBER/KotoClick">GitHub</a> and unpack it.`,
+    install3: `Double-click <code>run.bat</code>: on first launch it downloads the dependencies (<code>PySide6</code>, <code>PySide6-Addons</code>, <code>pynput</code>) and starts the cat.`,
+    install4: `Need a standalone <code>.exe</code>? Run <code>build.bat</code> and a ready <code>KotoClick.exe</code> appears right in the project folder, next to <code>build.bat</code>.`,
+    installNote: `An antivirus may falsely flag the built <code>.exe</code> because the program captures global hotkeys. That's why running from source or building it yourself is safer. Some games with anti-cheat may block autoclickers.`,
+    botTitle: `📥 By the way, we have a Telegram bot for downloading videos`,
+    botText: `Check out <a href="https://t.me/DownGrabBot?start=KotoClick" target="_blank" rel="noopener">@DownGrabBot</a>. The cat sometimes reminds you about it, roughly once every half hour, and only when it's not busy.`,
+    footerTagline: `🐾 KotoClick — clicks gently, works faithfully.`,
+    footerMeta: `License: GNU GPL v3 · Contact: <a href="https://NomberProjects.github.io" target="_blank" rel="noopener">NomberProjects</a>`
+  };
+  const I18N_en = Object.assign({}, I18N_en_a, I18N_en_b);
+
+  const I18N = { ru: I18N_ru, en: I18N_en };
+
+  const PHRASES = {
+    ru: ["Мрр. Кликаю за тебя.", "Лапки так и мелькают!", "Шапка качается, дело идёт.", "Мышка записала. Я повторю.", "Ещё разок?"],
+    en: ["Purr. Clicking for you.", "These paws are flying!", "Headset bouncing, work in progress.", "The mouse recorded it. I'll replay.", "One more time?"]
+  };
+
+  const RUSSIAN_TIMEZONES = ["Europe/Kaliningrad","Europe/Moscow","Europe/Kirov","Europe/Samara","Europe/Ulyanovsk","Europe/Saratov","Europe/Volgograd","Europe/Astrakhan","Asia/Yekaterinburg","Asia/Omsk","Asia/Novosibirsk","Asia/Barnaul","Asia/Tomsk","Asia/Novokuznetsk","Asia/Krasnoyarsk","Asia/Irkutsk","Asia/Chita","Asia/Yakutsk","Asia/Khandyga","Asia/Vladivostok","Asia/Ust-Nera","Asia/Magadan","Asia/Sakhalin","Asia/Srednekolymsk","Asia/Kamchatka","Asia/Anadyr"];
+
+  const STORAGE_KEY = "kotoclick-lang";
+  let current = "ru";
+  let timer, last = -1;
+
+  const cat = document.getElementById("cat");
+  const say = document.getElementById("say");
+  const toggle = document.getElementById("langToggle");
+
+  function detectLocale() {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved === "ru" || saved === "en") return saved;
+      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+      if (RUSSIAN_TIMEZONES.indexOf(tz) !== -1) return "ru";
+    } catch (e) {}
+    return "en";
+  }
+
+  function applyLocale(locale) {
+    current = locale;
+    document.documentElement.lang = locale;
+    const t = I18N[locale];
+    document.title = t.title;
+    const meta = document.querySelector('meta[name="description"]');
+    if (meta) meta.setAttribute("content", t.metaDescription);
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      const k = el.getAttribute("data-i18n");
+      if (t[k] != null) el.textContent = t[k];
+    });
+    document.querySelectorAll("[data-i18n-html]").forEach(function (el) {
+      const k = el.getAttribute("data-i18n-html");
+      if (t[k] != null) el.innerHTML = t[k];
+    });
+    document.querySelectorAll("[data-i18n-aria]").forEach(function (el) {
+      const k = el.getAttribute("data-i18n-aria");
+      if (t[k] != null) el.setAttribute("aria-label", t[k]);
+    });
+    toggle.checked = locale === "en";
+    const ru = document.querySelector('[data-lang-label="ru"]');
+    const en = document.querySelector('[data-lang-label="en"]');
+    if (ru) ru.classList.toggle("on", locale === "ru");
+    if (en) en.classList.toggle("on", locale === "en");
+    clearTimeout(timer);
+    cat.classList.remove("awake");
+    say.textContent = t.sayIdle;
+    try { localStorage.setItem(STORAGE_KEY, locale); } catch (e) {}
+  }
+
+  toggle.addEventListener("change", function () {
+    applyLocale(toggle.checked ? "en" : "ru");
+  });
+
+  cat.addEventListener("click", function () {
+    cat.classList.add("awake");
+    const phrases = PHRASES[current];
+    let i;
+    do { i = Math.floor(Math.random() * phrases.length); } while (i === last);
+    last = i;
+    say.textContent = phrases[i];
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+      cat.classList.remove("awake");
+      say.textContent = I18N[current].sayIdle;
+    }, 3000);
+  });
+
+  // A language-specific page (e.g. /ru/) sets data-force-lang on <html> so it always opens in that language.
+  applyLocale(document.documentElement.getAttribute("data-force-lang") || detectLocale());
+</script>
+</body>
+</html>

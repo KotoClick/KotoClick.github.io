@@ -1,10 +1,24 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>КотоКлик (KotoClick) — кликер, где котик кликает за тебя</title>
-<meta name="description" content="КотоКлик (KotoClick) — автокликер для Windows с ленивым рыжим котиком: автоклик, макросы, звуки и вайбовая дискотека.">
+<!-- Link previews (Telegram, Discord, etc.) read these static tags without running JS, so they are in English; the page language still switches via the script below. -->
+<title>KotoClick — the autoclicker where a cat clicks for you</title>
+<meta name="description" content="KotoClick — a Windows autoclicker with a lazy ginger cat: auto-click, macros, sounds and a groovy disco party.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KotoClick">
+<meta property="og:title" content="KotoClick — the autoclicker where a cat clicks for you">
+<meta property="og:description" content="KotoClick — a Windows autoclicker with a lazy ginger cat: auto-click, macros, sounds and a groovy disco party.">
+<meta property="og:url" content="https://kotoclick.github.io/">
+<meta property="og:locale" content="en_US"><meta property="og:locale:alternate" content="ru_RU">
+<link rel="canonical" href="https://kotoclick.github.io/">
+<link rel="alternate" hreflang="en" href="https://kotoclick.github.io/">
+<link rel="alternate" hreflang="ru" href="https://kotoclick.github.io/ru/">
+<link rel="alternate" hreflang="x-default" href="https://kotoclick.github.io/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="KotoClick — the autoclicker where a cat clicks for you">
+<meta name="twitter:description" content="KotoClick — a Windows autoclicker with a lazy ginger cat: auto-click, macros, sounds and a groovy disco party.">
 <style>
   :root{
     --bg:#2a1f1d; --bg2:#34262a; --card:#3b2c2f; --text:#fbefe3; --muted:#cdb7a6;
@@ -524,7 +538,8 @@
     }, 3000);
   });
 
-  applyLocale(detectLocale());
+  // A language-specific page (e.g. /ru/) sets data-force-lang on <html> so it always opens in that language.
+  applyLocale(document.documentElement.getAttribute("data-force-lang") || detectLocale());
 </script>
 </body>
 </html>
